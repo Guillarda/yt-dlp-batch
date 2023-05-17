@@ -1,11 +1,22 @@
 @echo off
 title YT-DLP Music Downloader By Guillarda
 set "Path=%Path%;%CD%\bin;"
+ffmpeg -version > nul
+if %errorlevel% NEQ 0 (
+    cls
+    echo FFMPEG is missing, we will download it, please wait
+    echo If your connection is slow it will take some time
+    wget http://data.guillarda.fr/ffmpeg/bin/ffmpeg.exe -O "./bin/ffmpeg.exe" -q
+    echo.
+) else (
+    goto :home
+)
 yt-dlp --version > nul
 if %errorlevel% NEQ 0 (
     cls
     echo Downloading of yt-dlp
-    "./bin/wget.exe" https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe -O "./bin/yt-dlp.exe" -q
+    wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe -O "./bin/yt-dlp.exe" -q
+    echo.
 ) else (
     goto :home
 )
