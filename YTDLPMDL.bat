@@ -5,7 +5,6 @@ ffmpeg -version > nul
 if %errorlevel% NEQ 0 (
     echo FFMPEG is missing, we will download it, please wait
     echo If your connection is slow it will take some time
-    REM wget https://data.guillarda.fr/ffmpeg/bin/ffmpeg.exe -O "./bin/ffmpeg.exe" -q
     curl https://data.guillarda.fr/ffmpeg/bin/ffmpeg.exe -o "./bin/ffmpeg.exe"
     echo.
 ) else (
