@@ -8,6 +8,7 @@ if %errorlevel% NEQ 0 (
     curl https://data.guillarda.fr/ffmpeg/bin/ffmpeg.exe -o "./bin/ffmpeg.exe"
     echo.
 ) else (
+    echo ffmpeg is detected.
     goto :yt-dlp-check
 )
 :yt-dlp-check
@@ -17,6 +18,7 @@ if %errorlevel% NEQ 0 (
     curl https://data.guillarda.fr/yt-dlp/yt-dlp.exe -o "./bin/yt-dlp.exe"
     echo.
 ) else (
+    echo yt-dlp is detected.
     goto :home
 )
 :home
